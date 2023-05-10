@@ -2,7 +2,7 @@ const player = require('play-sound')();
 const loudness = require('loudness');
 
 // Archivos de sonido a reproducir
-const soundFiles = ['./media/PistaD.mp3', './media/PistaE.mp3', './media/PistaA.mp3', './media/PistaB.mp3'];
+const soundFiles = ['./media/PistaD.mp3', './media/PistaC.mp3','./media/PistaE.mp3', './media/PistaA.mp3', './media/PistaB.mp3'];
 console.log(soundFiles);
 
 // Volumen de cada sonido
