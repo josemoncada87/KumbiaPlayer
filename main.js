@@ -9,15 +9,12 @@ console.log(soundFiles);
 const volumes = [0, 0, 0, 0];
 
 soundFiles.forEach((soundFile, i) => {
-    //player.play(soundFile, { volume: 0 }, err => {
-    //  if (err) console.error(err);
-    //  console.log("play");
-    //});
+    player.play(soundFile, { volume: 0 }, err => {
+      if (err) console.error(err);
+      console.log("play");
+    });
 });
 
-player.play('./media/PistaD.mp3', { volume: 1 }, err => {
-    if (err) console.error(err);
-  });
 
 //player.play('cancion.mp3', { volume: 150 }, err => {
  //   if (err) console.error(err);
