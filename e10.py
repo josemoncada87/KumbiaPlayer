@@ -5,7 +5,7 @@ state1 = True
 state2 = True
 state3 = True
 state4 = True
-pygame.mixer.pre_init(44100, 16, 2, 4096) #frequency, size, channels, buffersize
+pygame.mixer.pre_init(22050, 16, 2, 4096) #frequency, size, channels, buffersize
 
 #pygame.mixer.pre_init(frequency=44100, size=-16, channels=2, buffersize=4096)
 # Inicializar pygame.mixer
@@ -37,10 +37,10 @@ thread2 = Thread(target=mixer2.play)
 thread3 = Thread(target=mixer3.play)
 thread4 = Thread(target=mixer4.play)
 
-play_music("./media/PistaB.wav")
-play_music("./media/PistaC.wav")
-play_music("./media/PistaD.wav")
-play_music("./media/PistaE.wav")
+play_music("./media/PistaB.mp3")
+play_music("./media/PistaC.mp3")
+play_music("./media/PistaD.mp3")
+play_music("./media/PistaE.mp3")
 
 '''
 # Iniciar los hilos de reproducción
