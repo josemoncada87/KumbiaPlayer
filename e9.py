@@ -37,6 +37,12 @@ thread2 = Thread(target=mixer2.play)
 thread3 = Thread(target=mixer3.play)
 thread4 = Thread(target=mixer4.play)
 
+mixer1.play()
+mixer2.play()
+mixer3.play()
+mixer4.play()
+
+'''
 # Iniciar los hilos de reproducción
 thread1.start()
 thread2.start()
@@ -60,7 +66,7 @@ mixer1.set_volume(volume1)
 mixer2.set_volume(volume2)
 mixer3.set_volume(volume3)
 mixer4.set_volume(volume4)
-
+'''
 def reportChannel():
     print("Canal 1: ", state1)
     print("Canal 2: ", state2)
