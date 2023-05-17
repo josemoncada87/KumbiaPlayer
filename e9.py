@@ -38,16 +38,16 @@ thread3 = Thread(target=mixer3.play)
 thread4 = Thread(target=mixer4.play)
 
 # Iniciar los hilos de reproducción
-#thread1.start()
-#thread2.start()
-#thread3.start()
-#thread4.start()
+thread1.start()
+thread2.start()
+thread3.start()
+thread4.start()
 
 # Esperar a que los hilos terminen (puedes ajustar el tiempo según la duración de las pistas)
-'''thread1.join()
+thread1.join()
 thread2.join()
 thread3.join()
-thread4.join()'''
+thread4.join()
 
 # Definir los volúmenes deseados para cada pista (valores entre 0.0 y 1.0)
 volume1 = 1.0
