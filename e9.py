@@ -56,10 +56,10 @@ volume3 = 1.0
 volume4 = 1.0
 
 # Establecer el volumen de cada pista
-'''mixer1.set_volume(volume1)
+mixer1.set_volume(volume1)
 mixer2.set_volume(volume2)
 mixer3.set_volume(volume3)
-mixer4.set_volume(volume4)'''
+mixer4.set_volume(volume4)
 
 def reportChannel():
     print("Canal 1: ", state1)
