@@ -25,17 +25,19 @@ print("Current working directory: {0}".format(cwd))
 
 print(cwd+'/media/PistaE.mp3')
 # Crear cuatro objetos de mezclador de sonido
-mixer2 = pygame.mixer.Sound(".\media\PistaB.mp3")
+'''mixer2 = pygame.mixer.Sound(".\media\PistaB.mp3")
 mixer3 = pygame.mixer.Sound(".\media\PistaC.mp3")
 mixer4 = pygame.mixer.Sound(".\media\PistaD.mp3")
 mixer1 = pygame.mixer.Sound(".\media\PistaE.mp3")
-
+'''
 play_music(".\media\PistaE.mp3")
 # Reproducir cada pista en un hilo separado
+'''
 thread1 = Thread(target=mixer1.play)
 thread2 = Thread(target=mixer2.play)
 thread3 = Thread(target=mixer3.play)
 thread4 = Thread(target=mixer4.play)
+'''
 
 # Iniciar los hilos de reproducción
 #thread1.start()
@@ -72,7 +74,7 @@ def reportChannel():
 
 #Infinite loop
 while True:
-    print("------------------------------------------------------------------------------------")
+    '''print("------------------------------------------------------------------------------------")
     print("Press 'p' to pause the music")
     print("Press 'r' to resume the music")
     print("Press 'e' to exit the program")
@@ -131,4 +133,6 @@ while True:
             mixer4.set_volume(1.0)
         state4 = not state4
         reportChannel()
+        
+        '''
 
