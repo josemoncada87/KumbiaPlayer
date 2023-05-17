@@ -5,9 +5,9 @@ state1 = True
 state2 = True
 state3 = True
 state4 = True
-pygame.mixer.pre_init(22050, 16, 2, 4096) #frequency, size, channels, buffersize
 
-#pygame.mixer.pre_init(frequency=44100, size=-16, channels=2, buffersize=4096)
+pygame.mixer.pre_init(44100, 16, 2, 4096) #frequency, size, channels, buffersize
+
 # Inicializar pygame.mixer
 pygame.mixer.init()
 
@@ -22,12 +22,12 @@ import os
 cwd = os.getcwd()
 # Print the current working directory
 print("Current working directory: {0}".format(cwd))
-# print(cwd+'/media/PistaE.wav')
+
 # Crear cuatro objetos de mezclador de sonido
-mixer2 = pygame.mixer.Sound("./media/PistaB.wav")
-mixer3 = pygame.mixer.Sound("./media/PistaC.wav")
-mixer4 = pygame.mixer.Sound("./media/PistaD.wav")
-mixer1 = pygame.mixer.Sound("./media/PistaE.wav")
+mixer2 = pygame.mixer.Sound("./media/PistaB.ogg")
+mixer3 = pygame.mixer.Sound("./media/PistaC.ogg")
+mixer4 = pygame.mixer.Sound("./media/PistaD.ogg")
+mixer1 = pygame.mixer.Sound("./media/PistaE.ogg")
 
 # play_music("./media/PistaE.wav")
 # Reproducir cada pista en un hilo separado
@@ -42,7 +42,7 @@ mixer2.play()
 mixer3.play()
 mixer4.play()
 
-'''
+
 # Iniciar los hilos de reproducción
 thread1.start()
 thread2.start()
@@ -66,7 +66,7 @@ mixer1.set_volume(volume1)
 mixer2.set_volume(volume2)
 mixer3.set_volume(volume3)
 mixer4.set_volume(volume4)
-'''
+
 def reportChannel():
     print("Canal 1: ", state1)
     print("Canal 2: ", state2)
