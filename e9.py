@@ -6,9 +6,13 @@ state2 = True
 state3 = True
 state4 = True
 
-#def play_music(file_path):
-#    pygame.mixer.music.load(file_path)
-#    pygame.mixer.music.play()
+# Inicializar pygame.mixer
+pygame.mixer.init()
+
+def play_music(file_path):
+    pygame.mixer.music.load(file_path)
+    pygame.mixer.music.play()
+    print("start")
 
 # Import the os module
 import os
@@ -17,17 +21,16 @@ cwd = os.getcwd()
 # Print the current working directory
 print("Current working directory: {0}".format(cwd))
 
-# Inicializar pygame.mixer
-pygame.mixer.init()
+
 
 print(cwd+'/media/PistaE.mp3')
-
 # Crear cuatro objetos de mezclador de sonido
 mixer2 = pygame.mixer.Sound(".\media\PistaB.mp3")
 mixer3 = pygame.mixer.Sound(".\media\PistaC.mp3")
 mixer4 = pygame.mixer.Sound(".\media\PistaD.mp3")
 mixer1 = pygame.mixer.Sound(".\media\PistaE.mp3")
 
+play_music(".\media\PistaE.mp3")
 # Reproducir cada pista en un hilo separado
 thread1 = Thread(target=mixer1.play)
 thread2 = Thread(target=mixer2.play)
@@ -35,16 +38,16 @@ thread3 = Thread(target=mixer3.play)
 thread4 = Thread(target=mixer4.play)
 
 # Iniciar los hilos de reproducción
-thread1.start()
-thread2.start()
-thread3.start()
-thread4.start()
+#thread1.start()
+#thread2.start()
+#thread3.start()
+#thread4.start()
 
 # Esperar a que los hilos terminen (puedes ajustar el tiempo según la duración de las pistas)
-thread1.join()
+'''thread1.join()
 thread2.join()
 thread3.join()
-thread4.join()
+thread4.join()'''
 
 # Definir los volúmenes deseados para cada pista (valores entre 0.0 y 1.0)
 volume1 = 1.0
@@ -53,10 +56,10 @@ volume3 = 1.0
 volume4 = 1.0
 
 # Establecer el volumen de cada pista
-mixer1.set_volume(volume1)
+'''mixer1.set_volume(volume1)
 mixer2.set_volume(volume2)
 mixer3.set_volume(volume3)
-mixer4.set_volume(volume4)
+mixer4.set_volume(volume4)'''
 
 def reportChannel():
     print("Canal 1: ", state1)
