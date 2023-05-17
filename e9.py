@@ -6,6 +6,7 @@ state2 = True
 state3 = True
 state4 = True
 
+pygame.mixer.pre_init(frequency=44100, size=-16, channels=2, buffersize=4096)
 # Inicializar pygame.mixer
 pygame.mixer.init()
 
@@ -30,7 +31,7 @@ mixer3 = pygame.mixer.Sound(".\media\PistaC.mp3")
 mixer4 = pygame.mixer.Sound(".\media\PistaD.mp3")
 mixer1 = pygame.mixer.Sound(".\media\PistaE.mp3")
 '''
-play_music(".\media\PistaE.wav")
+play_music("./media/PistaE.wav")
 # Reproducir cada pista en un hilo separado
 '''
 thread1 = Thread(target=mixer1.play)
