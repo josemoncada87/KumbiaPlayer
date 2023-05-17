@@ -6,7 +6,7 @@ state2 = True
 state3 = True
 state4 = True
 
-pygame.mixer.pre_init(frequency=44100, size=-16, channels=2, buffersize=4096)
+#pygame.mixer.pre_init(frequency=44100, size=-16, channels=2, buffersize=4096)
 # Inicializar pygame.mixer
 pygame.mixer.init()
 
