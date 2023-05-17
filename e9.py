@@ -14,10 +14,10 @@ state4 = True
 pygame.mixer.init()
 
 # Crear cuatro objetos de mezclador de sonido
-mixer1 = pygame.mixer.Sound('./media/PistaE.mp3')
-mixer2 = pygame.mixer.Sound('./media/PistaB.mp3')
-mixer3 = pygame.mixer.Sound('./media/PistaC.mp3')
-mixer4 = pygame.mixer.Sound('./media/PistaD.mp3')
+mixer1 = pygame.mixer.Sound('/media/PistaE.mp3')
+mixer2 = pygame.mixer.Sound('/media/PistaB.mp3')
+mixer3 = pygame.mixer.Sound('/media/PistaC.mp3')
+mixer4 = pygame.mixer.Sound('/media/PistaD.mp3')
 
 # Reproducir cada pista en un hilo separado
 thread1 = Thread(target=mixer1.play)
