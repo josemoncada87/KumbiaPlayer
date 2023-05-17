@@ -58,6 +58,7 @@ while True:
             mixer.music.set_volume(volumeMix)
         elif keyboard.is_pressed('esc'):
             print("Se presionó la tecla 'Escape'. Saliendo del programa...")
-            break
+            break        
     except:
+        print("ERROR")
         break
