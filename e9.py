@@ -72,7 +72,7 @@ def reportChannel():
 
 #Infinite loop
 while True:
-    '''print("------------------------------------------------------------------------------------")
+    print("------------------------------------------------------------------------------------")
     print("Press 'p' to pause the music")
     print("Press 'r' to resume the music")
     print("Press 'e' to exit the program")
@@ -132,5 +132,5 @@ while True:
         state4 = not state4
         reportChannel()
         
-        '''
+        
 
