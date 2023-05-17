@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "child_process": "^1.0.2",
     "loudness": "^0.4.1",
-    "play-sound": "^1.1.5"    
+    "mpg123": "^0.2.3",
+    "play-sound": "^1.1.5"
   }
 }
