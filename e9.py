@@ -22,8 +22,7 @@ import os
 cwd = os.getcwd()
 # Print the current working directory
 print("Current working directory: {0}".format(cwd))
-
-print(cwd+'/media/PistaE.wav')
+# print(cwd+'/media/PistaE.wav')
 # Crear cuatro objetos de mezclador de sonido
 mixer2 = pygame.mixer.Sound("./media/PistaB.wav")
 mixer3 = pygame.mixer.Sound("./media/PistaC.wav")
@@ -32,12 +31,11 @@ mixer1 = pygame.mixer.Sound("./media/PistaE.wav")
 
 # play_music("./media/PistaE.wav")
 # Reproducir cada pista en un hilo separado
-'''
+
 thread1 = Thread(target=mixer1.play)
 thread2 = Thread(target=mixer2.play)
 thread3 = Thread(target=mixer3.play)
 thread4 = Thread(target=mixer4.play)
-'''
 
 # Iniciar los hilos de reproducción
 #thread1.start()
