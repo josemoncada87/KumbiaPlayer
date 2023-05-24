@@ -56,6 +56,8 @@ thread4.start()
 
 
 def handle_button_press(button_number):
+    global state1, state2, state3, state4
+    
     if button_number == 1:
         #toggle_volume(mixer1)
         vol_control(1)
