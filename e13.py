@@ -3,7 +3,7 @@ import RPi.GPIO as GPIO
 button_pin = 20
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(button_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(button_pin, GPIO.IN)
 
 # Estado inicial del botón (asumiendo que está en posición OFF)
 button_state = GPIO.input(button_pin)
