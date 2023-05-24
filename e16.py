@@ -19,8 +19,8 @@ try:
                 if clkState != clkLastState:
                         if dtState != clkState:
                             counter += 1
-                            if counter > 5:
-                                counter = 5
+                            if counter > 10:
+                                counter = 10
                         else:
                             counter -= 1
                             if counter <= 0:

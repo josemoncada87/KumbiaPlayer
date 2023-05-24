@@ -149,18 +149,20 @@ try:
         
         clkState = GPIO.input(clk)
         dtState = GPIO.input(dt)
-        
         if clkState != clkLastState:
-            
             if dtState != clkState:
                 counter += 1
+                if counter > 10:
+                    counter = 10
             else:
                 counter -= 1
-                
-        print(counter)
-        handle_potentiometer_change(counter)
-        clkLastState = clkState
-        time.sleep(0.0001)
+                if counter <= 0:
+                    counter = 0
+            print (counter)
+            clkLastState = clkState
+            handle_potentiometer_change(counter)
+            clkLastState = clkState
+            time.sleep(0.0001)
         
 except KeyboardInterrupt:
     pass
