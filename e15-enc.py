@@ -149,6 +149,7 @@ try:
         
         clkState = GPIO.input(clk)
         dtState = GPIO.input(dt)
+        
         if clkState != clkLastState:
             
             if dtState != clkState:
@@ -159,7 +160,7 @@ try:
         print(counter)
         handle_potentiometer_change(counter)
         clkLastState = clkState
-        time.sleep(0.001)
+        time.sleep(0.0001)
         
 except KeyboardInterrupt:
     pass
