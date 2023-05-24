@@ -74,6 +74,7 @@ def handle_button_press(button_number):
         toggle_volume(mixer4)
         #vol_control(4)
         print("btn4")
+    reportChannel()
 
 def handle_potentiometer_change(potentiometer_value):
     global volume1, volume2, volume3, volume4
