@@ -111,12 +111,11 @@ def toggle_volume(mixer):
 try:
     while True:
         
-        if GPIO.input(20) == GPIO.HIGH:
+        if GPIO.input(20) == GPIO.LOW:
                 handle_button_press(i + 1)
-                print("Handle button", i)
         
         for i, pin in enumerate(button_pins):
-            if GPIO.input(pin) == GPIO.HIGH:
+            if GPIO.input(pin) == GPIO.LOW:
                 handle_button_press(i + 1)
                 print("Handle button", i)
 
