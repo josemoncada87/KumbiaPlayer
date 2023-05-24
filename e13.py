@@ -1,21 +1,18 @@
+# importamos librerias
 import RPi.GPIO as GPIO
-
-button_pin = 20
-
+import time
+# indicamos el uso de  la identificacion BCM para los GPIO
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(button_pin, GPIO.IN)
-
-# Estado inicial del botón (asumiendo que está en posición OFF)
-button_state = GPIO.input(button_pin)
-
+# configuramos el pin 18 como entrada y activamos 
+# la resistencia de activacion del pin 18 con PUD_UP
+# esto hará que al presionar el botón se interrumpe
+# la tensión de 3,3V del pin
+GPIO.setup(20,GPIO.IN,pull_up_down=GPIO.PUD_UP)
+# bucle infinito que recoge el estado de la resistencia
+# del pin18, si el estado es Falso (interrupción 3,3V) 
+# mostramos el texto boton presionado
 while True:
-    # Detectar cambios en el estado del botón
-    if GPIO.input(button_pin) != button_state:
-        button_state = GPIO.input(button_pin)
-        
-        if button_state == GPIO.LOW:
-            # El botón ha sido presionado (posición ON)
-            print("Botón presionado")
-        else:
-            # El botón ha sido liberado (posición OFF)
-            print("Botón liberado")
+    input_state=GPIO.input(20)
+    if input_state==False:
+        print('Boton presionado')
+        time.sleep(0.2)
