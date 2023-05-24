@@ -27,7 +27,7 @@ button_pins = [17, 18, 19, 20]
 potentiometer_pin = 21
 
 for pin in button_pins:
-    GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(pin, GPIO.IN)
 GPIO.setup(potentiometer_pin, GPIO.IN)
 
 volume1 = 1.0
