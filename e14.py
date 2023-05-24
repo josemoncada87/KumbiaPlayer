@@ -62,22 +62,22 @@ def handle_button_press(button_number, status):
         #toggle_volume(mixer1)
         #vol_control(1)
         controlSwitch(mixer1,status)
-        print("btn1")
+        print("btn1", status)
     elif button_number == 2:
         #toggle_volume(mixer2)
         #vol_control(2)
         controlSwitch(mixer2, status)
-        print("btn2")
+        print("btn2", status)
     elif button_number == 3:
         #toggle_volume(mixer3)
         #vol_control(3)
         controlSwitch(mixer3, status)
-        print("btn3")
+        print("btn3", status)
     elif button_number == 4:
         #toggle_volume(mixer4)
         #vol_control(4)
         controlSwitch(mixer4, status)
-        print("btn4")
+        print("btn4", status)
     reportChannel()
     
 def controlSwitch(mixer, status):
@@ -140,10 +140,11 @@ try:
         for i, pin in enumerate(button_pins):
             if GPIO.input(pin) == False:
                 handle_button_press(i + 1, False)
-                #print("Handle button", i)
+                print("Handle button", i, False)
                 time.sleep(0.5)
             else:
                 handle_button_press(i + 1, True)
+                print("Handle button", i, True)
                 time.sleep(0.5)
 
         #potentiometer_value = GPIO.input(potentiometer_pin)
