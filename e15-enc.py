@@ -125,7 +125,7 @@ def reportChannel():
     print("Canal 4: ", state4)
 
 clk = 17
-dt = 18
+dt = 27
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(clk, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
