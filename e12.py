@@ -53,18 +53,24 @@ thread2.start()
 thread3.start()
 thread4.start()
 
+
+
 def handle_button_press(button_number):
     if button_number == 1:
-        toggle_volume(mixer1)
+        #toggle_volume(mixer1)
+        vol_control(1)
         print("btn1")
     elif button_number == 2:
-        toggle_volume(mixer2)
+        #toggle_volume(mixer2)
+        vol_control(2)
         print("btn2")
     elif button_number == 3:
-        toggle_volume(mixer3)
+        #toggle_volume(mixer3)
+        vol_control(3)
         print("btn3")
     elif button_number == 4:
-        toggle_volume(mixer4)
+        #toggle_volume(mixer4)
+        vol_control(4)
         print("btn4")
 
 def handle_potentiometer_change(potentiometer_value):
@@ -109,6 +115,46 @@ def toggle_volume(mixer):
     elif mixer == mixer4:
         state4 = not state4
 
+def vol_control(userInput):
+    
+    if userInput == 1:
+        if state1 == True:
+            mixer1.set_volume(0.0)
+        else:
+            mixer1.set_volume(1.0)        
+        state1 = not state1
+        reportChannel()
+
+    elif userInput == 2:
+        if state2 == True:
+            mixer2.set_volume(0.0)
+        else:
+            mixer2.set_volume(1.0)
+        state2 = not state2
+        reportChannel()
+
+    elif userInput == 3:
+        if state3 == True:
+            mixer3.set_volume(0.0)
+        else:
+            mixer3.set_volume(1.0)
+        state3 = not state3
+        reportChannel()
+
+    elif userInput == 4:
+        if state4 == True:
+            mixer4.set_volume(0.0)
+        else:
+            mixer4.set_volume(1.0)
+        state4 = not state4
+        reportChannel() 
+
+def reportChannel():
+    print("Canal 1: ", state1)
+    print("Canal 2: ", state2)
+    print("Canal 3: ", state3)
+    print("Canal 4: ", state4)
+    
 try:
     while True:
         '''
