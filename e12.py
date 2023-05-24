@@ -66,7 +66,7 @@ def handle_potentiometer_change(potentiometer_value):
     global volume1, volume2, volume3, volume4
     global general_volume
 
-    general_volume = potentiometer_value / 100.0
+    general_volume = potentiometer_value / 10.0
     print("Volumen: ")
     print(general_volume)
     mixer1.set_volume(volume1 * general_volume)
