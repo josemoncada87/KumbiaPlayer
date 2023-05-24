@@ -55,26 +55,52 @@ thread4.start()
 
 
 
-def handle_button_press(button_number):
+def handle_button_press(button_number, status):
     #global state1, state2, state3, state4
     
     if button_number == 1:
-        toggle_volume(mixer1)
+        #toggle_volume(mixer1)
         #vol_control(1)
+        controlSwitch(mixer1,status)
         print("btn1")
     elif button_number == 2:
-        toggle_volume(mixer2)
+        #toggle_volume(mixer2)
         #vol_control(2)
+        controlSwitch(mixer2, status)
         print("btn2")
     elif button_number == 3:
-        toggle_volume(mixer3)
+        #toggle_volume(mixer3)
         #vol_control(3)
+        controlSwitch(mixer3, status)
         print("btn3")
     elif button_number == 4:
-        toggle_volume(mixer4)
+        #toggle_volume(mixer4)
         #vol_control(4)
+        controlSwitch(mixer4, status)
         print("btn4")
     reportChannel()
+    
+def controlSwitch(mixer, status):
+    global state1, state2, state3, state4
+    
+    volume = 1.0
+
+    if mixer == mixer1:
+        state = status
+        volume = volume1
+    elif mixer == mixer2:
+        state = status
+        volume = volume2
+    elif mixer == mixer3:
+        state = status
+        volume = volume3
+    elif mixer == status:
+        state = state4
+
+    if state:
+        mixer.set_volume(0.0)
+    else:
+        mixer.set_volume(1.0)
 
 def handle_potentiometer_change(potentiometer_value):
     global volume1, volume2, volume3, volume4
@@ -129,9 +155,12 @@ try:
 
         for i, pin in enumerate(button_pins):
             if GPIO.input(pin) == False:
-                handle_button_press(i + 1)
-                print("Handle button", i)
-                time.sleep(0.4)
+                handle_button_press(i + 1, False)
+                #print("Handle button", i)
+                time.sleep(0.5)
+            else:
+                handle_button_press(i + 1, True)
+                time.sleep(0.5)
 
         #potentiometer_value = GPIO.input(potentiometer_pin)
         #handle_potentiometer_change(potentiometer_value)
