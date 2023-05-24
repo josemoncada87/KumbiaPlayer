@@ -157,7 +157,7 @@ try:
                 counter -= 1
                 
         print(counter)
-        handle_potentiometer_change(counter);
+        handle_potentiometer_change(counter)
         clkLastState = clkState
         time.sleep(0.001)
         
