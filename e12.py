@@ -114,8 +114,8 @@ try:
         if GPIO.input(20) == GPIO.LOW:
                 handle_button_press(4)
         
-        for i, pin in enumerate(button_pins):
-            if GPIO.input(pin) == GPIO.LOW:
+        #for i, pin in enumerate(button_pins):
+        #    if GPIO.input(pin) == GPIO.LOW:
                 #handle_button_press(i + 1)
                 #print("Handle button", i)
 
