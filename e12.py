@@ -55,12 +55,16 @@ thread4.start()
 def handle_button_press(button_number):
     if button_number == 1:
         toggle_volume(mixer1)
+        print("btn1")
     elif button_number == 2:
         toggle_volume(mixer2)
+        print("btn2")
     elif button_number == 3:
         toggle_volume(mixer3)
+        print("btn3")
     elif button_number == 4:
         toggle_volume(mixer4)
+        print("btn4")
 
 def handle_potentiometer_change(potentiometer_value):
     global volume1, volume2, volume3, volume4
@@ -74,7 +78,7 @@ def handle_potentiometer_change(potentiometer_value):
     mixer4.set_volume(volume4 * general_volume)
     # ...
 def toggle_volume(mixer):
-    global state1, state2, state3, state4, volume
+    global state1, state2, state3, state4
     
     volume = 1.0
 
@@ -109,6 +113,7 @@ try:
         for i, pin in enumerate(button_pins):
             if GPIO.input(pin) == GPIO.LOW:
                 handle_button_press(i + 1)
+                print("Handle button", i)
 
         potentiometer_value = GPIO.input(potentiometer_pin)
         handle_potentiometer_change(potentiometer_value)
