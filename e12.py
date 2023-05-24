@@ -111,13 +111,14 @@ def toggle_volume(mixer):
 
 try:
     while True:
-        
+        '''
         input_state=GPIO.input(20)
         if input_state==False:
             print('Boton presionado')
             #handle_button_press(1)
             time.sleep(0.2)
             # GPIO.LOW
+        '''
         for i, pin in enumerate(button_pins):
             if GPIO.input(pin) == False:
                 handle_button_press(i + 1)
