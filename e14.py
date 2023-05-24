@@ -81,23 +81,7 @@ def handle_button_press(button_number, status):
     reportChannel()
     
 def controlSwitch(mixer, status):
-    global state1, state2, state3, state4
-    
-    volume = 1.0
-
-    if mixer == mixer1:
-        state = status
-        volume = volume1
-    elif mixer == mixer2:
-        state = status
-        volume = volume2
-    elif mixer == mixer3:
-        state = status
-        volume = volume3
-    elif mixer == status:
-        state = state4
-
-    if state:
+    if status:
         mixer.set_volume(0.0)
     else:
         mixer.set_volume(1.0)
