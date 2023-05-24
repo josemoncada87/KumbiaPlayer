@@ -24,7 +24,7 @@ mixer4 = pygame.mixer.Sound("./media/PistaD.ogg")
 mixer1 = pygame.mixer.Sound("./media/PistaE.ogg")
 
 GPIO.setmode(GPIO.BCM)
-button_pins = [17, 18, 19, 20]
+button_pins = [14, 15, 18, 20]
 potentiometer_pin = 21
 
 for pin in button_pins:
@@ -115,11 +115,14 @@ try:
         input_state=GPIO.input(20)
         if input_state==False:
             print('Boton presionado')
+            #handle_button_press(1)
             time.sleep(0.2)
-            handle_button_press(1)
-            handle_button_press(2)
-            handle_button_press(3)
-            handle_button_press(4)
+            # GPIO.LOW
+        for i, pin in enumerate(button_pins):
+            if GPIO.input(pin) == False:
+                handle_button_press(i + 1)
+                print("Handle button", i)
+                time.sleep(0.2)
         
         #for i, pin in enumerate(button_pins):
         #    if GPIO.input(pin) == GPIO.LOW:
