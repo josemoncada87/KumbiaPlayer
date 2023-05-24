@@ -116,11 +116,11 @@ try:
         
         for i, pin in enumerate(button_pins):
             if GPIO.input(pin) == GPIO.LOW:
-                handle_button_press(i + 1)
-                print("Handle button", i)
+                #handle_button_press(i + 1)
+                #print("Handle button", i)
 
-        potentiometer_value = GPIO.input(potentiometer_pin)
-        handle_potentiometer_change(potentiometer_value)
+        #potentiometer_value = GPIO.input(potentiometer_pin)
+        #handle_potentiometer_change(potentiometer_value)
         
         
 
