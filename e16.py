@@ -18,9 +18,13 @@ try:
                 dtState = GPIO.input(dt)
                 if clkState != clkLastState:
                         if dtState != clkState:
-                                counter += 1
+                            counter += 1
+                            if counter > 5:
+                                counter = 5
                         else:
-                                counter -= 1
+                            counter -= 1
+                            if counter <= 0:
+                                counter = 0
                         print (counter)
                 clkLastState = clkState
                 sleep(0.01)
