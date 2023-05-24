@@ -80,7 +80,7 @@ def handle_potentiometer_change(potentiometer_value):
     global volume1, volume2, volume3, volume4
     global general_volume
 
-    general_volume = potentiometer_value
+    general_volume = potentiometer_value/10
 
     mixer1.set_volume(volume1 * general_volume)
     mixer2.set_volume(volume2 * general_volume)
@@ -150,13 +150,16 @@ try:
         clkState = GPIO.input(clk)
         dtState = GPIO.input(dt)
         if clkState != clkLastState:
+            
             if dtState != clkState:
                 counter += 1
             else:
                 counter -= 1
-            print(counter)
+                
+        print(counter)
+        handle_potentiometer_change(counter);
         clkLastState = clkState
-        time.sleep(0.01)
+        time.sleep(0.001)
         
 except KeyboardInterrupt:
     pass
