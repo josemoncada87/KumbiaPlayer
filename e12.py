@@ -59,20 +59,20 @@ def handle_button_press(button_number):
     #global state1, state2, state3, state4
     
     if button_number == 1:
-        #toggle_volume(mixer1)
-        vol_control(1)
+        toggle_volume(mixer1)
+        #vol_control(1)
         print("btn1")
     elif button_number == 2:
-        #toggle_volume(mixer2)
-        vol_control(2)
+        toggle_volume(mixer2)
+        #vol_control(2)
         print("btn2")
     elif button_number == 3:
-        #toggle_volume(mixer3)
-        vol_control(3)
+        toggle_volume(mixer3)
+        #vol_control(3)
         print("btn3")
     elif button_number == 4:
-        #toggle_volume(mixer4)
-        vol_control(4)
+        toggle_volume(mixer4)
+        #vol_control(4)
         print("btn4")
 
 def handle_potentiometer_change(potentiometer_value):
@@ -86,7 +86,7 @@ def handle_potentiometer_change(potentiometer_value):
     mixer3.set_volume(volume3 * general_volume)
     mixer4.set_volume(volume4 * general_volume)
     # ...
-def toggle_volume1(mixer):
+def toggle_volume(mixer):
     global state1, state2, state3, state4
     
     volume = 1.0
