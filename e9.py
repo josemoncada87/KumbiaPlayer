@@ -1,21 +1,6 @@
 import pygame.mixer
 from threading import Thread
 
-state1 = True
-state2 = True
-state3 = True
-state4 = True
-
-pygame.mixer.pre_init(44100, 16, 2, 4096) #frequency, size, channels, buffersize
-
-# Inicializar pygame.mixer
-pygame.mixer.init()
-
-def play_music(file_path):
-    pygame.mixer.music.load(file_path)
-    pygame.mixer.music.play()
-    print("start")
-
 # Import the os module
 import os
 # Get the current working directory
@@ -23,13 +8,29 @@ cwd = os.getcwd()
 # Print the current working directory
 print("Current working directory: {0}".format(cwd))
 
+state1 = True
+state2 = True
+state3 = True
+state4 = True
+
+# Inicializar pygame.mixer
+pygame.mixer.pre_init(44100, 16, 2, 4096) #frequency, size, channels, buffersize
+pygame.mixer.init()
+
 # Crear cuatro objetos de mezclador de sonido
 mixer2 = pygame.mixer.Sound("./media/PistaB.ogg")
 mixer3 = pygame.mixer.Sound("./media/PistaC.ogg")
 mixer4 = pygame.mixer.Sound("./media/PistaD.ogg")
 mixer1 = pygame.mixer.Sound("./media/PistaE.ogg")
 
+'''
+def play_music(file_path):
+    pygame.mixer.music.load(file_path)
+    pygame.mixer.music.play()
+    print("start")
 # play_music("./media/PistaE.wav")
+'''
+
 # Reproducir cada pista en un hilo separado
 
 thread1 = Thread(target=mixer1.play)
