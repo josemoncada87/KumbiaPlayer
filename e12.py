@@ -112,7 +112,7 @@ try:
     while True:
         
         if GPIO.input(20) == GPIO.LOW:
-                handle_button_press(i + 1)
+                handle_button_press(4)
         
         for i, pin in enumerate(button_pins):
             if GPIO.input(pin) == GPIO.LOW:
