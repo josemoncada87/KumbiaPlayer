@@ -2,6 +2,7 @@ import pygame.mixer
 from threading import Thread
 import os
 import RPi.GPIO as GPIO
+import time
 
 # Obtener el directorio de trabajo actual
 cwd = os.getcwd()
@@ -111,8 +112,11 @@ def toggle_volume(mixer):
 try:
     while True:
         
-        if GPIO.input(20) == GPIO.HIGH:
-                handle_button_press(4)
+        input_state=GPIO.input(20)
+        if input_state==False:
+            print('Boton presionado')
+            time.sleep(0.2)
+            handle_button_press(4)
         
         #for i, pin in enumerate(button_pins):
         #    if GPIO.input(pin) == GPIO.LOW:
