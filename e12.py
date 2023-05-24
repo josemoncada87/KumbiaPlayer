@@ -116,6 +116,9 @@ try:
         if input_state==False:
             print('Boton presionado')
             time.sleep(0.2)
+            handle_button_press(1)
+            handle_button_press(2)
+            handle_button_press(3)
             handle_button_press(4)
         
         #for i, pin in enumerate(button_pins):
