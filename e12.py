@@ -105,7 +105,7 @@ def toggle_volume(mixer):
 try:
     while True:
         for i, pin in enumerate(button_pins):
-            if GPIO.input(pin) == GPIO.LOW:
+            if GPIO.input(pin) == GPIO.HIGH:
                 handle_button_press(i + 1)
 
         potentiometer_value = GPIO.input(potentiometer_pin)
