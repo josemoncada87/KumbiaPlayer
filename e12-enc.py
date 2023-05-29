@@ -93,11 +93,6 @@ def toggle_volume(mixer):
     elif mixer == mixer4:
         state = state4
     
-    if state:
-        mixer.set_volume(0.0)
-    #else:
-    #    mixer.set_volume(general_volume)
-
     if mixer == mixer1:
         state1 = not state1
     elif mixer == mixer2:
@@ -139,10 +134,30 @@ try:
             time.sleep(0.0001)
             general_volume = (counter * 0.01)     
             print(f"set_volume: {general_volume}")
-            mixer1.set_volume(general_volume)
+            if state1:
+                mixer1.set_volume(0.0)
+            else:
+                mixer1.set_volume(general_volume)
+                
+            if state2:
+                mixer2.set_volume(0.0)
+            else:
+                mixer2.set_volume(general_volume)
+                
+            if state3:
+                mixer3.set_volume(0.0)
+            else:
+                mixer3.set_volume(general_volume)
+                
+            if state4:
+                mixer4.set_volume(0.0)
+            else:
+                mixer4.set_volume(general_volume)
+            
+            '''mixer1.set_volume(general_volume)
             mixer2.set_volume(general_volume)
             mixer3.set_volume(general_volume)
-            mixer4.set_volume(general_volume)
+            mixer4.set_volume(general_volume)'''
         
 except KeyboardInterrupt:
     pass
