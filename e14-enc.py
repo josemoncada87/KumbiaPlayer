@@ -123,8 +123,8 @@ try:
             clkLastState = clkState
             clkLastState = clkState
             time.sleep(0.001)
-        general_volume = (counter * 0.1)
-        print(f"set_volume: {general_volume}")
+            general_volume = (counter * 0.01)
+            print(f"set_volume: {general_volume}")
         
         if state1:
             mixer1.set_volume(0.0)
