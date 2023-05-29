@@ -28,7 +28,6 @@ button_pins = [14, 15, 18, 20]
 for pin in button_pins:
     GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-
 volume1 = 1.0
 volume2 = 1.0
 volume3 = 1.0
@@ -61,7 +60,6 @@ GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 counter = 0
 clkLastState = GPIO.input(clk)
 
-
 def handle_button_press(button_number):
     #global state1, state2, state3, state4
     if button_number == 1:
@@ -78,29 +76,10 @@ def handle_button_press(button_number):
         print("btn4")
     reportChannel()
 
-def handle_potentiometer_change(potentiometer_value):
-    global volume1, volume2, volume3, volume4
-    global general_volume
-    general_volume = (potentiometer_value * 0.01)
-    
-    v1 = general_volume
-    v2 = general_volume
-    v3 = general_volume
-    v4 = general_volume
-
-    mixer1.set_volume(v1)
-    mixer2.set_volume(v2)
-    mixer3.set_volume(v3)
-    mixer4.set_volume(v4)
-    
-    print(f"volumen_general: {general_volume}")
-    
-    
 def toggle_volume(mixer):
     global state1, state2, state3, state4
-    global general_volume
-    
-    volume = general_volume
+    global general_volume    
+    # volume = general_volume
 
     if mixer == mixer1:
         state = state1
@@ -113,8 +92,6 @@ def toggle_volume(mixer):
         #volume = volume3
     elif mixer == mixer4:
         state = state4
-    
-    print(f"set_volume: {general_volume}")
     
     if state:
         mixer.set_volume(0.0)
@@ -175,3 +152,20 @@ finally:
 
 
 
+'''def handle_potentiometer_change(potentiometer_value):
+    global volume1, volume2, volume3, volume4
+    global general_volume
+    general_volume = (potentiometer_value * 0.01)
+    
+    v1 = general_volume
+    v2 = general_volume
+    v3 = general_volume
+    v4 = general_volume
+
+    mixer1.set_volume(v1)
+    mixer2.set_volume(v2)
+    mixer3.set_volume(v3)
+    mixer4.set_volume(v4)
+    
+    print(f"volumen_general: {general_volume}")
+    '''
