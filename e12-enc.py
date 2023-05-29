@@ -89,13 +89,14 @@ def handle_potentiometer_change(potentiometer_value):
     #mixer3.set_volume(volume3 * general_volume)
     #mixer4.set_volume(volume4 * general_volume)
     # ...
-    print(general_volume)
+    print(f"volumen_general: {general_volume}")
     
     
 def toggle_volume(mixer):
     global state1, state2, state3, state4
+    global general_volume
     
-    volume = 1.0
+    #volume = 1.0
 
     if mixer == mixer1:
         state = state1
@@ -108,7 +109,9 @@ def toggle_volume(mixer):
         #volume = volume3
     elif mixer == mixer4:
         state = state4
-
+    
+    print(f"set_volume: {general_volume}")
+    
     if state:
         mixer.set_volume(0.0)
     else:
