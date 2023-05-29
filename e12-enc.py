@@ -79,16 +79,24 @@ def handle_button_press(button_number):
     reportChannel()
 
 def handle_potentiometer_change(potentiometer_value):
-    #global volume1, volume2, volume3, volume4
+    global volume1, volume2, volume3, volume4
     global general_volume
-
     general_volume = (potentiometer_value * 0.1)
+    
+    v1 = general_volume
+    v2 = general_volume
+    v3 = general_volume
+    v4 = general_volume
 
-    #mixer1.set_volume(volume1 * general_volume)
-    #mixer2.set_volume(volume2 * general_volume)
-    #mixer3.set_volume(volume3 * general_volume)
-    #mixer4.set_volume(volume4 * general_volume)
-    # ...
+    if not state1:
+        mixer1.set_volume(v1)
+    if not state2:
+        mixer2.set_volume(v2)
+    if not state3:
+        mixer3.set_volume(v3)
+    if not state4:
+        mixer4.set_volume(v4)
+    
     print(f"volumen_general: {general_volume}")
     
     
