@@ -94,6 +94,7 @@ def reportChannel():
 
 # Main program
 try:
+    print("Start")
     while True:
         for i, pin in enumerate(button_pins):
             if GPIO.input(pin) == False:
