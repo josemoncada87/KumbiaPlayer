@@ -107,12 +107,14 @@ def reportChannel():
 try:
     while True:
         for i, pin in enumerate(button_pins):
-            if GPIO.input(pin) == False:
+            handle_button_press(i + 1, GPIO.input(pin))
+            time.sleep(0.2)
+            '''if GPIO.input(pin) == False:
                 handle_button_press(i + 1, False)
-                time.sleep(0.1)
+                time.sleep(0.2)
             else:
                 handle_button_press(i + 1, True)
-                time.sleep(0.1)
+                time.sleep(0.2)'''
 
         clkState = GPIO.input(clk)
         dtState = GPIO.input(dt)
@@ -125,11 +127,9 @@ try:
                 counter -= 1
                 if counter <= 0:
                     counter = 0
-                    
             clkLastState = clkState
             clkLastState = clkState
             time.sleep(0.0001)
-            
             general_volume = (counter * 0.01)     
             print(f"set_volume: {general_volume}")
             
