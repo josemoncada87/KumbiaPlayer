@@ -81,7 +81,7 @@ def toggle_volume(mixer):
     global general_volume    
     # volume = general_volume
 
-    if mixer == mixer1:
+    '''if mixer == mixer1:
         state = state1
         #volume = volume1
     elif mixer == mixer2:
@@ -91,7 +91,7 @@ def toggle_volume(mixer):
         state = state3
         #volume = volume3
     elif mixer == mixer4:
-        state = state4
+        state = state4'''
     
     if mixer == mixer1:
         state1 = not state1
@@ -134,6 +134,7 @@ try:
             time.sleep(0.0001)
             general_volume = (counter * 0.01)     
             print(f"set_volume: {general_volume}")
+            
             if state1:
                 mixer1.set_volume(0.0)
             else:
