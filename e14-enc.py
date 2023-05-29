@@ -67,24 +67,24 @@ def handle_button_press(button_number, status):
     global state1, state2, state3, state4
     
     if button_number == 1:
-        state1=status
-        #controlSwitch(mixer1,status)
+        #state1=status
+        controlSwitch(mixer1,status)
         #print("btn1", status)
     elif button_number == 2:
-        state2=status
-        #controlSwitch(mixer2, status)
+        #state2=status
+        controlSwitch(mixer2, status)
         #print("btn2", status)
     elif button_number == 3:
-        state3=status
-        #controlSwitch(mixer3, status)
+        #state3=status
+        controlSwitch(mixer3, status)
         #print("btn3", status)
     elif button_number == 4:
-        state4=status
-        #controlSwitch(mixer4, status)
+        #state4=status
+        controlSwitch(mixer4, status)
         #print("btn4", status)
     reportChannel()
     
-'''def controlSwitch1(mixer, status):
+def controlSwitch(mixer, status):
     
     if mixer == mixer1:
         state1 = status
@@ -94,7 +94,7 @@ def handle_button_press(button_number, status):
         state3 = status
     elif mixer == mixer4:
         state4 = status
-    if status:
+    '''if status:
         mixer.set_volume(1.0 * (general_volume*0.1))
     else:
         mixer.set_volume(0.0)'''
@@ -128,10 +128,10 @@ try:
                 if counter <= 0:
                     counter = 0
             clkLastState = clkState
-            clkLastState = clkState
-            time.sleep(0.01)
-            general_volume = (counter * 0.01)     
+            clkLastState = clkState            
+            general_volume = (counter * 0.001)
             print(f"set_volume: {general_volume}")
+            time.sleep(0.0001)
             
         if state1:
             mixer1.set_volume(0.0)
