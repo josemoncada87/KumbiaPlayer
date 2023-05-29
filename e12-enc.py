@@ -136,12 +136,12 @@ def reportChannel():
     print("Canal 3: ", state3)
     print("Canal 4: ", state4)
 
+# Main program
 try:
     while True:
         for i, pin in enumerate(button_pins):
             if GPIO.input(pin) == False:
                 handle_button_press(i + 1)
-                print("Handle button", i)
                 time.sleep(0.2)
         
         clkState = GPIO.input(clk)
@@ -155,11 +155,17 @@ try:
                 counter -= 1
                 if counter <= 0:
                     counter = 0
-            print (counter)
+            #print (counter)
             clkLastState = clkState
-            handle_potentiometer_change(counter)
+            #handle_potentiometer_change(counter)
             clkLastState = clkState
             time.sleep(0.0001)
+            general_volume = (counter * 0.01)     
+            print(f"set_volume: {general_volume}")
+            mixer1.set_volume(general_volume)
+            mixer2.set_volume(general_volume)
+            mixer3.set_volume(general_volume)
+            mixer4.set_volume(general_volume)
         
 except KeyboardInterrupt:
     pass
