@@ -53,7 +53,6 @@ thread2.start()
 thread3.start()
 thread4.start()
 
-
 clk = 17
 dt = 27
 
@@ -69,23 +68,24 @@ def handle_button_press(button_number, status):
     
     if button_number == 1:
         state1=status
-        controlSwitch(mixer1,status)
+        #controlSwitch(mixer1,status)
         #print("btn1", status)
     elif button_number == 2:
         state2=status
-        controlSwitch(mixer2, status)
+        #controlSwitch(mixer2, status)
         #print("btn2", status)
     elif button_number == 3:
         state3=status
-        controlSwitch(mixer3, status)
+        #controlSwitch(mixer3, status)
         #print("btn3", status)
     elif button_number == 4:
         state4=status
-        controlSwitch(mixer4, status)
+        #controlSwitch(mixer4, status)
         #print("btn4", status)
     reportChannel()
     
-def controlSwitch(mixer, status):
+def controlSwitch1(mixer, status):
+    
     if mixer == mixer1:
         state1 = status
     elif mixer == mixer2:
@@ -100,11 +100,12 @@ def controlSwitch(mixer, status):
         mixer.set_volume(0.0)'''
 
 def reportChannel():
-    print(f"C1: {state1}, C2: {state2}, C3: {state3}, C4:{state4}", end="\r")
-    
+    print(f"C1: {state1}, C2: {state2}, C3: {state3}, C4:{state4}", end="\n")
+
+
+# Main program
 try:
     while True:
-
         for i, pin in enumerate(button_pins):
             if GPIO.input(pin) == False:
                 handle_button_press(i + 1, False)
@@ -124,9 +125,11 @@ try:
                 counter -= 1
                 if counter <= 0:
                     counter = 0
+                    
             clkLastState = clkState
             clkLastState = clkState
             time.sleep(0.0001)
+            
             general_volume = (counter * 0.01)     
             print(f"set_volume: {general_volume}")
             
