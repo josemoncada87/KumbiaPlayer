@@ -82,7 +82,7 @@ def handle_button_press(button_number, status):
         #state4=status
         controlSwitch(mixer4, status)
         #print("btn4", status)
-    reportChannel()
+    #reportChannel()
     
 def controlSwitch(mixer, status):
     global state1, state2, state3, state4
@@ -122,7 +122,7 @@ try:
                     counter = 10
             clkLastState = clkState
             clkLastState = clkState
-            time.sleep(0.0001)
+            time.sleep(0.001)
         general_volume = (counter * 0.1)
         print(f"set_volume: {general_volume}")
         
@@ -147,14 +147,14 @@ try:
             mixer4.set_volume(general_volume)
         
         for i, pin in enumerate(button_pins):
-            #handle_button_press(i + 1, GPIO.input(pin))
-            #time.sleep(0.2)
-            if GPIO.input(pin) == False:
+            handle_button_press(i + 1, GPIO.input(pin))
+            time.sleep(0.2)
+            '''if GPIO.input(pin) == False:
                 handle_button_press(i + 1, False)
                 time.sleep(0.25)
             else:
                 handle_button_press(i + 1, True)
-                time.sleep(0.25)
+                time.sleep(0.25)'''
         
 except KeyboardInterrupt:
     pass
