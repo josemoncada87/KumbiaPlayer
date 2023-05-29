@@ -81,7 +81,7 @@ def handle_button_press(button_number):
 def handle_potentiometer_change(potentiometer_value):
     global volume1, volume2, volume3, volume4
     global general_volume
-    general_volume = (potentiometer_value * 0.1)
+    general_volume = (potentiometer_value * 0.01)
     
     v1 = general_volume
     v2 = general_volume
