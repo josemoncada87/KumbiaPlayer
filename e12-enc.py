@@ -135,30 +135,30 @@ try:
             general_volume = (counter * 0.01)     
             print(f"set_volume: {general_volume}")
             
-            if state1:
-                mixer1.set_volume(0.0)
-            else:
-                mixer1.set_volume(general_volume)
-                
-            if state2:
-                mixer2.set_volume(0.0)
-            else:
-                mixer2.set_volume(general_volume)
-                
-            if state3:
-                mixer3.set_volume(0.0)
-            else:
-                mixer3.set_volume(general_volume)
-                
-            if state4:
-                mixer4.set_volume(0.0)
-            else:
-                mixer4.set_volume(general_volume)
+        if state1:
+            mixer1.set_volume(0.0)
+        else:
+            mixer1.set_volume(general_volume)
             
-            '''mixer1.set_volume(general_volume)
+        if state2:
+            mixer2.set_volume(0.0)
+        else:
             mixer2.set_volume(general_volume)
+            
+        if state3:
+            mixer3.set_volume(0.0)
+        else:
             mixer3.set_volume(general_volume)
-            mixer4.set_volume(general_volume)'''
+            
+        if state4:
+            mixer4.set_volume(0.0)
+        else:
+            mixer4.set_volume(general_volume)
+        
+        '''mixer1.set_volume(general_volume)
+        mixer2.set_volume(general_volume)
+        mixer3.set_volume(general_volume)
+        mixer4.set_volume(general_volume)'''
         
 except KeyboardInterrupt:
     pass
