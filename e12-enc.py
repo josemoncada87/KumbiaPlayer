@@ -8,10 +8,10 @@ import time
 cwd = os.getcwd()
 print("Directorio de trabajo actual: {0}".format(cwd))
 
-state1 = True
-state2 = True
-state3 = True
-state4 = True
+state1 = False
+state2 = False
+state3 = False
+state4 = False
 
 # Inicializar pygame.mixer
 pygame.mixer.pre_init(44100, 16, 2, 4096) #frequency, size, channels, buffersize
