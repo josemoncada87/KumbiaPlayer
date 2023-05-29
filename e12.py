@@ -60,19 +60,15 @@ def handle_button_press(button_number):
     
     if button_number == 1:
         toggle_volume(mixer1)
-        #vol_control(1)
         print("btn1")
     elif button_number == 2:
         toggle_volume(mixer2)
-        #vol_control(2)
         print("btn2")
     elif button_number == 3:
         toggle_volume(mixer3)
-        #vol_control(3)
         print("btn3")
     elif button_number == 4:
         toggle_volume(mixer4)
-        #vol_control(4)
         print("btn4")
     reportChannel()
 
@@ -133,10 +129,6 @@ try:
                 print("Handle button", i)
                 time.sleep(0.2)
 
-        #potentiometer_value = GPIO.input(potentiometer_pin)
-        #handle_potentiometer_change(potentiometer_value)
-        
-        
 
 except KeyboardInterrupt:
     pass

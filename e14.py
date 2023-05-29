@@ -94,13 +94,8 @@ def controlSwitch(mixer, status):
 def handle_potentiometer_change(potentiometer_value):
     global volume1, volume2, volume3, volume4
     global general_volume
-
     general_volume = potentiometer_value
-
-    #mixer1.set_volume(volume1 * general_volume)
-    #mixer2.set_volume(volume2 * general_volume)
-    #mixer3.set_volume(volume3 * general_volume)
-    #mixer4.set_volume(volume4 * general_volume)
+    
 
 def toggle_volume(mixer):
     global state1, state2, state3, state4
@@ -145,11 +140,9 @@ try:
         for i, pin in enumerate(button_pins):
             if GPIO.input(pin) == False:
                 handle_button_press(i + 1, False)
-                #print("Handle button", i, False)
                 time.sleep(0.2)
             else:
                 handle_button_press(i + 1, True)
-                #print("Handle button", i, True)
                 time.sleep(0.2)
 
         clkState = GPIO.input(clk)
