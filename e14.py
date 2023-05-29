@@ -53,6 +53,17 @@ thread2.start()
 thread3.start()
 thread4.start()
 
+
+clk = 17
+dt = 27
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(clk, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
+counter = 0
+clkLastState = GPIO.input(clk)
+
 def handle_button_press(button_number, status):
     global state1, state2, state3, state4
     
@@ -76,9 +87,9 @@ def handle_button_press(button_number, status):
     
 def controlSwitch(mixer, status):
     if status:
-        mixer.set_volume(0.0)
+        mixer.set_volume(1.0 * (general_volume*0.1))
     else:
-        mixer.set_volume(1.0)
+        mixer.set_volume(0.0)
 
 def handle_potentiometer_change(potentiometer_value):
     global volume1, volume2, volume3, volume4
@@ -86,11 +97,11 @@ def handle_potentiometer_change(potentiometer_value):
 
     general_volume = potentiometer_value
 
-    mixer1.set_volume(volume1 * general_volume)
-    mixer2.set_volume(volume2 * general_volume)
-    mixer3.set_volume(volume3 * general_volume)
-    mixer4.set_volume(volume4 * general_volume)
-    # ...
+    #mixer1.set_volume(volume1 * general_volume)
+    #mixer2.set_volume(volume2 * general_volume)
+    #mixer3.set_volume(volume3 * general_volume)
+    #mixer4.set_volume(volume4 * general_volume)
+
 def toggle_volume(mixer):
     global state1, state2, state3, state4
     
@@ -141,11 +152,26 @@ try:
                 #print("Handle button", i, True)
                 time.sleep(0.2)
 
-        #potentiometer_value = GPIO.input(potentiometer_pin)
-        #handle_potentiometer_change(potentiometer_value)
+        clkState = GPIO.input(clk)
+        dtState = GPIO.input(dt)
+        if clkState != clkLastState:
+            if dtState != clkState:
+                counter += 1
+                if counter > 10:
+                    counter = 10
+            else:
+                counter -= 1
+                if counter <= 0:
+                    counter = 0
+            print (counter)
+            clkLastState = clkState
+            handle_potentiometer_change(counter)
+            clkLastState = clkState
+            time.sleep(0.0001)
         
-        
-
 except KeyboardInterrupt:
     pass
+        
+finally:
+        GPIO.cleanup()
 

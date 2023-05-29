@@ -25,11 +25,9 @@ mixer1 = pygame.mixer.Sound("./media/PistaE.ogg")
 
 GPIO.setmode(GPIO.BCM)
 button_pins = [14, 15, 18, 20]
-potentiometer_pin = 21
-
 for pin in button_pins:
     GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(potentiometer_pin, GPIO.IN)
+
 
 volume1 = 1.0
 volume2 = 1.0
@@ -53,6 +51,15 @@ thread2.start()
 thread3.start()
 thread4.start()
 
+clk = 17
+dt = 27
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(clk, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
+counter = 0
+clkLastState = GPIO.input(clk)
 
 
 def handle_button_press(button_number):
@@ -80,7 +87,7 @@ def handle_potentiometer_change(potentiometer_value):
     global volume1, volume2, volume3, volume4
     global general_volume
 
-    general_volume = potentiometer_value/10
+    general_volume = (potentiometer_value)
 
     mixer1.set_volume(volume1 * general_volume)
     mixer2.set_volume(volume2 * general_volume)
@@ -124,28 +131,13 @@ def reportChannel():
     print("Canal 3: ", state3)
     print("Canal 4: ", state4)
 
-clk = 17
-dt = 27
-
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(clk, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-
-counter = 0
-clkLastState = GPIO.input(clk)
-
-
 try:
     while True:
-
         for i, pin in enumerate(button_pins):
             if GPIO.input(pin) == False:
                 handle_button_press(i + 1)
                 print("Handle button", i)
                 time.sleep(0.2)
-
-        #potentiometer_value = GPIO.input(potentiometer_pin)
-        #handle_potentiometer_change(potentiometer_value)
         
         clkState = GPIO.input(clk)
         dtState = GPIO.input(dt)
