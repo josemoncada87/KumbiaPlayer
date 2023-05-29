@@ -1,8 +1,8 @@
-import pygame.mixer
-from threading import Thread
 import os
-import RPi.GPIO as GPIO
 import time
+import pygame.mixer
+import RPi.GPIO as GPIO
+from threading import Thread
 
 # Obtener el directorio de trabajo actual
 cwd = os.getcwd()
@@ -142,23 +142,4 @@ except KeyboardInterrupt:
         
 finally:
         GPIO.cleanup()
-
-
-
-'''def handle_potentiometer_change(potentiometer_value):
-    global volume1, volume2, volume3, volume4
-    global general_volume
-    general_volume = (potentiometer_value * 0.01)
-    
-    v1 = general_volume
-    v2 = general_volume
-    v3 = general_volume
-    v4 = general_volume
-
-    mixer1.set_volume(v1)
-    mixer2.set_volume(v2)
-    mixer3.set_volume(v3)
-    mixer4.set_volume(v4)
-    
-    print(f"volumen_general: {general_volume}")
-    '''
+        

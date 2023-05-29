@@ -68,7 +68,6 @@ clkLastState = GPIO.input(clk)
 def reportChannel():
     print(f"C1: {state1}, C2: {state2}, C3: {state3}, C4:{state4}", end="\n")
 
-
 # Main program
 try:
     while True:        
@@ -111,9 +110,6 @@ try:
             mixer4.set_volume(general_volume)
         
         for i, pin in enumerate(button_pins):
-            #handle_button_press(i + 1, GPIO.input(pin))
-            #time.sleep(0.2)
-            
             if i == 0:
                 state1 = GPIO.input(pin)
             elif i == 1:
@@ -129,87 +125,4 @@ except KeyboardInterrupt:
 
 finally:
     GPIO.cleanup()
-
-
-
-'''
-def handle_button_press(button_number, status):
-    global mixer1, mixer2, mixer3, mixer4
     
-    if button_number == 1:
-        #state1=status
-        controlSwitch(mixer1, status)
-        print("btn1", status)
-    elif button_number == 2:
-        #state2=status
-        controlSwitch(mixer2, status)
-        print("btn2", status)
-    elif button_number == 3:
-        #state3=status
-        controlSwitch(mixer3, status)
-        print("btn3", status)
-    elif button_number == 4:
-        #state4=status
-        controlSwitch(mixer4, status)
-        print("btn4", status)
-    #reportChannel()
-    
-def controlSwitch(mixer, status):
-    global state1, state2, state3, state4
-    
-    if mixer == mixer1:
-        state1 = status
-    elif mixer == mixer2:
-        state2 = status
-    elif mixer == mixer3:
-        state3 = status
-    elif mixer == mixer4:
-        state4 = status
-    if status:
-        mixer.set_volume(1.0 * (general_volume*0.1))
-    else:
-        mixer.set_volume(0.0)
-'''
-
-
-'''def handle_potentiometer_change(potentiometer_value):
-    global volume1, volume2, volume3, volume4
-    global general_volume
-
-    general_volume = potentiometer_value
-
-    #mixer1.set_volume(volume1 * general_volume)
-    #mixer2.set_volume(volume2 * general_volume)
-    #mixer3.set_volume(volume3 * general_volume)
-    #mixer4.set_volume(volume4 * general_volume)'''
-    
-'''def toggle_volume1(mixer):
-    global state1, state2, state3, state4
-    
-    volume = 1.0
-
-    if mixer == mixer1:
-        state = state1
-        volume = volume1
-    elif mixer == mixer2:
-        state = state2
-        volume = volume2
-    elif mixer == mixer3:
-        state = state3
-        volume = volume3
-    elif mixer == mixer4:
-        state = state4
-
-    if state:
-        mixer.set_volume(0.0)
-    else:
-        mixer.set_volume(volume * general_volume)
-
-    if mixer == mixer1:
-        state1 = not state1
-    elif mixer == mixer2:
-        state2 = not state2
-    elif mixer == mixer3:
-        state3 = not state3
-    elif mixer == mixer4:
-        state4 = not state4 '''
