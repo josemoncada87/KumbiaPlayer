@@ -119,10 +119,11 @@ try:
                 if counter <= 0:
                     counter = 0
             clkLastState = clkState
-            clkLastState = clkState            
-            general_volume = (counter * 0.001)
-            print(f"set_volume: {general_volume}")
+            clkLastState = clkState
             time.sleep(0.0001)
+        general_volume = (counter * 0.01)
+        print(f"set_volume: {general_volume}")
+        
         
         
         
