@@ -117,7 +117,7 @@ try:
             else:
                 counter -= 10
                 if counter <= 0:
-                    counter = 0
+                    counter = 10
             clkLastState = clkState
             clkLastState = clkState
             time.sleep(0.0001)
