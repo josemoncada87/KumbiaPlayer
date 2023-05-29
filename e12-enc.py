@@ -64,7 +64,6 @@ clkLastState = GPIO.input(clk)
 
 def handle_button_press(button_number):
     #global state1, state2, state3, state4
-    
     if button_number == 1:
         toggle_volume(mixer1)
         print("btn1")
@@ -80,7 +79,7 @@ def handle_button_press(button_number):
     reportChannel()
 
 def handle_potentiometer_change(potentiometer_value):
-    global volume1, volume2, volume3, volume4
+    #global volume1, volume2, volume3, volume4
     global general_volume
 
     general_volume = (potentiometer_value * 0.1)
@@ -90,6 +89,9 @@ def handle_potentiometer_change(potentiometer_value):
     #mixer3.set_volume(volume3 * general_volume)
     #mixer4.set_volume(volume4 * general_volume)
     # ...
+    print(general_volume)
+    
+    
 def toggle_volume(mixer):
     global state1, state2, state3, state4
     
