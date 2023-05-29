@@ -8,10 +8,10 @@ import time
 cwd = os.getcwd()
 print("Directorio de trabajo actual: {0}".format(cwd))
 
-state1 = True
-state2 = True
-state3 = True
-state4 = True
+state1 = False
+state2 = False
+state3 = False
+state4 = False
 
 # Inicializar pygame.mixer
 pygame.mixer.pre_init(44100, 16, 2, 4096) #frequency, size, channels, buffersize
@@ -84,7 +84,7 @@ def handle_button_press(button_number, status):
         #print("btn4", status)
     reportChannel()
     
-def controlSwitch1(mixer, status):
+'''def controlSwitch1(mixer, status):
     
     if mixer == mixer1:
         state1 = status
@@ -94,7 +94,7 @@ def controlSwitch1(mixer, status):
         state3 = status
     elif mixer == mixer4:
         state4 = status
-    '''if status:
+    if status:
         mixer.set_volume(1.0 * (general_volume*0.1))
     else:
         mixer.set_volume(0.0)'''
@@ -129,7 +129,7 @@ try:
                     counter = 0
             clkLastState = clkState
             clkLastState = clkState
-            time.sleep(0.0001)
+            time.sleep(0.01)
             general_volume = (counter * 0.01)     
             print(f"set_volume: {general_volume}")
             
