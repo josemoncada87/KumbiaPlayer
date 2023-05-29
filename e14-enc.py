@@ -63,6 +63,7 @@ GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 counter = 0
 clkLastState = GPIO.input(clk)
 
+'''
 def handle_button_press(button_number, status):
     global mixer1, mixer2, mixer3, mixer4
     
@@ -95,10 +96,11 @@ def controlSwitch(mixer, status):
         state3 = status
     elif mixer == mixer4:
         state4 = status
-    '''if status:
+    if status:
         mixer.set_volume(1.0 * (general_volume*0.1))
     else:
-        mixer.set_volume(0.0)'''
+        mixer.set_volume(0.0)
+'''
 
 
 def reportChannel():
@@ -152,19 +154,13 @@ try:
             
             if i == 0:
                 state1 = GPIO.input(pin)
-            elif i == 2:
+            elif i == 1:
                 state2 = GPIO.input(pin)
-            elif i == 3:
+            elif i == 2:
                 state3 = GPIO.input(pin)
-            elif i == 4:
+            elif i == 3:
                 state4 = GPIO.input(pin)
-            
-            '''if GPIO.input(pin) == False:
-                handle_button_press(i + 1, False)
-                time.sleep(0.25)
-            else:
-                handle_button_press(i + 1, True)
-                time.sleep(0.25)'''
+
         
 except KeyboardInterrupt:
     pass
