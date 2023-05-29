@@ -64,16 +64,16 @@ def handle_button_press(button_number):
     #global state1, state2, state3, state4
     if button_number == 1:
         toggle_volume(mixer1)
-        print("btn1", end="\r")
+        print("btn1")
     elif button_number == 2:
         toggle_volume(mixer2)
-        print("btn2", end="\r")
+        print("btn2")
     elif button_number == 3:
         toggle_volume(mixer3)
-        print("btn3", end="\r")
+        print("btn3")
     elif button_number == 4:
         toggle_volume(mixer4)
-        print("btn4", end="\r")
+        print("btn4")
     reportChannel()
 
 def toggle_volume(mixer):
@@ -130,7 +130,7 @@ try:
             clkLastState = clkState
             time.sleep(0.0001)
             general_volume = (counter * 0.01)     
-            print(f"set_volume: {general_volume}", end="\r")
+            print(f"set_volume: {general_volume}")
             
         if state1:
             mixer1.set_volume(0.0)
