@@ -113,16 +113,17 @@ try:
         dtState = GPIO.input(dt)
         if clkState != clkLastState:
             if dtState != clkState:
-                counter += 10
+                counter += 1
                 if counter > 100:
                     counter = 100
             else:
-                counter -= 10
+                counter -= 1
                 if counter <= 0:
-                    counter = 10
+                    counter = 0
             clkLastState = clkState
             clkLastState = clkState
             time.sleep(0.001)
+            
             general_volume = (counter * 0.01)
             print(f"set_volume: {general_volume}")
         
