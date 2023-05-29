@@ -24,12 +24,14 @@ mixer4 = pygame.mixer.Sound("./media/PistaD.ogg")
 mixer1 = pygame.mixer.Sound("./media/PistaE.ogg")
 
 GPIO.setmode(GPIO.BCM)
-button_pins = [14, 15, 18, 20]
-potentiometer_pin = 21
 
+potentiometer_pin = 21
+GPIO.setup(potentiometer_pin, GPIO.IN)
+
+button_pins = [14, 15, 18, 20]
 for pin in button_pins:
     GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(potentiometer_pin, GPIO.IN)
+
 
 volume1 = 1.0
 volume2 = 1.0
@@ -62,46 +64,6 @@ GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 counter = 0
 clkLastState = GPIO.input(clk)
-
-'''
-def handle_button_press(button_number, status):
-    global mixer1, mixer2, mixer3, mixer4
-    
-    if button_number == 1:
-        #state1=status
-        controlSwitch(mixer1, status)
-        print("btn1", status)
-    elif button_number == 2:
-        #state2=status
-        controlSwitch(mixer2, status)
-        print("btn2", status)
-    elif button_number == 3:
-        #state3=status
-        controlSwitch(mixer3, status)
-        print("btn3", status)
-    elif button_number == 4:
-        #state4=status
-        controlSwitch(mixer4, status)
-        print("btn4", status)
-    #reportChannel()
-    
-def controlSwitch(mixer, status):
-    global state1, state2, state3, state4
-    
-    if mixer == mixer1:
-        state1 = status
-    elif mixer == mixer2:
-        state2 = status
-    elif mixer == mixer3:
-        state3 = status
-    elif mixer == mixer4:
-        state4 = status
-    if status:
-        mixer.set_volume(1.0 * (general_volume*0.1))
-    else:
-        mixer.set_volume(0.0)
-'''
-
 
 def reportChannel():
     print(f"C1: {state1}, C2: {state2}, C3: {state3}, C4:{state4}", end="\n")
@@ -167,6 +129,48 @@ except KeyboardInterrupt:
 
 finally:
     GPIO.cleanup()
+
+
+
+'''
+def handle_button_press(button_number, status):
+    global mixer1, mixer2, mixer3, mixer4
+    
+    if button_number == 1:
+        #state1=status
+        controlSwitch(mixer1, status)
+        print("btn1", status)
+    elif button_number == 2:
+        #state2=status
+        controlSwitch(mixer2, status)
+        print("btn2", status)
+    elif button_number == 3:
+        #state3=status
+        controlSwitch(mixer3, status)
+        print("btn3", status)
+    elif button_number == 4:
+        #state4=status
+        controlSwitch(mixer4, status)
+        print("btn4", status)
+    #reportChannel()
+    
+def controlSwitch(mixer, status):
+    global state1, state2, state3, state4
+    
+    if mixer == mixer1:
+        state1 = status
+    elif mixer == mixer2:
+        state2 = status
+    elif mixer == mixer3:
+        state3 = status
+    elif mixer == mixer4:
+        state4 = status
+    if status:
+        mixer.set_volume(1.0 * (general_volume*0.1))
+    else:
+        mixer.set_volume(0.0)
+'''
+
 
 '''def handle_potentiometer_change(potentiometer_value):
     global volume1, volume2, volume3, volume4
