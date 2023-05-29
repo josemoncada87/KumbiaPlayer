@@ -64,24 +64,24 @@ counter = 0
 clkLastState = GPIO.input(clk)
 
 def handle_button_press(button_number, status):
-    
+    global mixer1, mixer2, mixer3, mixer4
     
     if button_number == 1:
         #state1=status
-        controlSwitch(mixer1,status)
-        #print("btn1", status)
+        controlSwitch(mixer1, status)
+        print("btn1", status)
     elif button_number == 2:
         #state2=status
         controlSwitch(mixer2, status)
-        #print("btn2", status)
+        print("btn2", status)
     elif button_number == 3:
         #state3=status
         controlSwitch(mixer3, status)
-        #print("btn3", status)
+        print("btn3", status)
     elif button_number == 4:
         #state4=status
         controlSwitch(mixer4, status)
-        #print("btn4", status)
+        print("btn4", status)
     #reportChannel()
     
 def controlSwitch(mixer, status):
@@ -107,8 +107,7 @@ def reportChannel():
 
 # Main program
 try:
-    while True:
-        
+    while True:        
         clkState = GPIO.input(clk)
         dtState = GPIO.input(dt)
         if clkState != clkLastState:
@@ -159,9 +158,9 @@ try:
         
 except KeyboardInterrupt:
     pass
-        
+
 finally:
-        GPIO.cleanup()
+    GPIO.cleanup()
 
 '''def handle_potentiometer_change(potentiometer_value):
     global volume1, volume2, volume3, volume4
