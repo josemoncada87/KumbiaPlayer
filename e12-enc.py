@@ -61,7 +61,7 @@ counter = 0
 clkLastState = GPIO.input(clk)
 
 def handle_button_press(button_number):
-    #global state1, state2, state3, state4
+
     if button_number == 1:
         toggle_volume(mixer1)
         print("btn1")
@@ -79,19 +79,6 @@ def handle_button_press(button_number):
 def toggle_volume(mixer):
     global state1, state2, state3, state4
     global general_volume    
-    # volume = general_volume
-
-    '''if mixer == mixer1:
-        state = state1
-        #volume = volume1
-    elif mixer == mixer2:
-        state = state2
-        #volume = volume2
-    elif mixer == mixer3:
-        state = state3
-        #volume = volume3
-    elif mixer == mixer4:
-        state = state4'''
     
     if mixer == mixer1:
         state1 = not state1
@@ -124,9 +111,7 @@ try:
                 counter -= 1
                 if counter <= 0:
                     counter = 0
-            #print (counter)
             clkLastState = clkState
-            #handle_potentiometer_change(counter)
             clkLastState = clkState
             time.sleep(0.0001)
             general_volume = (counter * 0.01)     
@@ -151,11 +136,6 @@ try:
             mixer4.set_volume(0.0)
         else:
             mixer4.set_volume(general_volume)
-        
-        '''mixer1.set_volume(general_volume)
-        mixer2.set_volume(general_volume)
-        mixer3.set_volume(general_volume)
-        mixer4.set_volume(general_volume)'''
         
 except KeyboardInterrupt:
     pass
