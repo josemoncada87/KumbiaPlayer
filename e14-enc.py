@@ -98,6 +98,28 @@ def controlSwitch(mixer, status):
         mixer.set_volume(1.0 * (general_volume*0.1))
     else:
         mixer.set_volume(0.0)'''
+    
+    if state1:
+        mixer1.set_volume(0.0)
+    else:
+        mixer1.set_volume(general_volume)
+        
+    if state2:
+        mixer2.set_volume(0.0)
+    else:
+        mixer2.set_volume(general_volume)
+        
+    if state3:
+        mixer3.set_volume(0.0)
+    else:
+        mixer3.set_volume(general_volume)
+        
+    if state4:
+        mixer4.set_volume(0.0)
+    else:
+        mixer4.set_volume(general_volume)
+        
+    
 
 def reportChannel():
     print(f"C1: {state1}, C2: {state2}, C3: {state3}, C4:{state4}", end="\n")
@@ -121,44 +143,20 @@ try:
             clkLastState = clkState
             clkLastState = clkState
             time.sleep(0.0001)
-        general_volume = (counter * 0.01)
+        general_volume = (counter * 0.1)
         print(f"set_volume: {general_volume}")
         
-        
-        
-        
-        
-        
         for i, pin in enumerate(button_pins):
-            handle_button_press(i + 1, GPIO.input(pin))
-            time.sleep(0.2)
-            '''if GPIO.input(pin) == False:
+            #handle_button_press(i + 1, GPIO.input(pin))
+            #time.sleep(0.2)
+            if GPIO.input(pin) == False:
                 handle_button_press(i + 1, False)
-                time.sleep(0.2)
+                time.sleep(0.25)
             else:
                 handle_button_press(i + 1, True)
-                time.sleep(0.2)'''
+                time.sleep(0.25)
 
         
-        if state1:
-            mixer1.set_volume(0.0)
-        else:
-            mixer1.set_volume(general_volume)
-            
-        if state2:
-            mixer2.set_volume(0.0)
-        else:
-            mixer2.set_volume(general_volume)
-            
-        if state3:
-            mixer3.set_volume(0.0)
-        else:
-            mixer3.set_volume(general_volume)
-            
-        if state4:
-            mixer4.set_volume(0.0)
-        else:
-            mixer4.set_volume(general_volume)
         
 except KeyboardInterrupt:
     pass
