@@ -111,11 +111,11 @@ try:
         dtState = GPIO.input(dt)
         if clkState != clkLastState:
             if dtState != clkState:
-                counter += 1
+                counter += 10
                 if counter > 100:
                     counter = 100
             else:
-                counter -= 1
+                counter -= 10
                 if counter <= 0:
                     counter = 0
             clkLastState = clkState
