@@ -104,7 +104,7 @@ def toggle_volume(mixer):
     global state1, state2, state3, state4
     global general_volume
     
-    #volume = 1.0
+    volume = general_volume
 
     if mixer == mixer1:
         state = state1
@@ -153,8 +153,8 @@ try:
         if clkState != clkLastState:
             if dtState != clkState:
                 counter += 1
-                if counter > 10:
-                    counter = 10
+                if counter > 100:
+                    counter = 100
             else:
                 counter -= 1
                 if counter <= 0:
