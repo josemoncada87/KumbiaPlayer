@@ -147,8 +147,18 @@ try:
             mixer4.set_volume(general_volume)
         
         for i, pin in enumerate(button_pins):
-            handle_button_press(i + 1, GPIO.input(pin))
-            time.sleep(0.2)
+            #handle_button_press(i + 1, GPIO.input(pin))
+            #time.sleep(0.2)
+            
+            if i == 0:
+                state1 = GPIO.input(pin)
+            elif i == 2:
+                state2 = GPIO.input(pin)
+            elif i == 3:
+                state3 = GPIO.input(pin)
+            elif i == 4:
+                state4 = GPIO.input(pin)
+            
             '''if GPIO.input(pin) == False:
                 handle_button_press(i + 1, False)
                 time.sleep(0.25)
